@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -43,6 +44,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        float stamina = 100f;
+        float maxstamina = 100f;
+
+        float number;
+
+        public Slider slider;
+
         // Use this for initialization
         private void Start()
         {
@@ -56,12 +64,64 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            number = m_RunSpeed;
         }
 
 
         // Update is called once per frame
         private void Update()
         {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                if (stamina > 0)
+                {
+                    stamina -= 20f * Time.deltaTime;
+                }
+            }
+            else if (Input.GetKey(KeyCode.W))
+            {
+                if (stamina <= maxstamina)
+                {
+                    stamina += 10f * Time.deltaTime;
+                }
+            }
+            else if (Input.GetKey(KeyCode.UpArrow))
+            {
+                if (stamina <= maxstamina)
+                {
+                    stamina += 10f * Time.deltaTime;
+                }
+            }
+            else
+            {
+                if (stamina <= 100)
+                {
+                    stamina += 30f * Time.deltaTime;
+                }
+            }
+
+            if (stamina <= 0f)
+            {
+                m_RunSpeed = m_WalkSpeed;
+            }
+            else
+            {
+                m_RunSpeed = number;
+            }
+
+            slider.value = stamina;
+
+            if (stamina < 100)
+            {
+                slider.gameObject.SetActive(true);
+            }
+            else
+            {
+                slider.gameObject.SetActive(false);
+            }
+
+
+
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
