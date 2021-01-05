@@ -43,6 +43,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        bool UnLock;
 
         float stamina = 100f;
         float maxstamina = 100f;
@@ -50,6 +51,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         float number;
 
         public Slider slider;
+
 
         // Use this for initialization
         private void Start()
@@ -71,6 +73,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 if (stamina > 0)
