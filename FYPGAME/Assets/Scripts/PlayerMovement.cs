@@ -42,22 +42,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (stamina <= maxstamina)
-        //{
-        //    stamina += 5f * Time.deltaTime;
-        //}
-
-        //if (stamina <= 0f)
-        //{
-        //    runSpeed = speed;
-        //}
-        //else
-        //{
-        //    runSpeed = number;
-        //}
-
-        //slider.value = stamina;
-
         if (Input.GetKey(KeyCode.LeftShift))
         {
             if (stamina > 0)
