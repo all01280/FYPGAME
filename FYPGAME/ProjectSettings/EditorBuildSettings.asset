@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/MyFYPGAME/Scenes/Menu.unity
     guid: 789fc3397a4e11d4698c7f11ef6a8038
   - enabled: 1
-    path: Assets/Scenes/Hospital.unity
+    path: Assets/MyFYPGAME/Scenes/Hospital.unity
     guid: 7314873873bda0e47ac8142f4d4da1a4
   m_configObjects: {}
