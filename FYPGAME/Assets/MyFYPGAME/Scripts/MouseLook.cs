@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
+    public GameObject UI;
     public float mouseSensitivity = 100f;
 
     public Transform playerBody;
@@ -32,20 +34,35 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            UnLock = !UnLock;
+              Cursor.lockState = CursorLockMode.None;
+              Cursor.visible = true;
+              mouseSensitivity = 0f;
+              UI.SetActive(true);
+            //UnLock = !UnLock;
         }
-        if (UnLock)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        //if (UnLock)
+        //{
+        //    Cursor.lockState = CursorLockMode.None;
+        //    Cursor.visible = true;
+        //    mouseSensitivity = 0f;
+        //    UI.SetActive(true);
+        //}
+        //else
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.visible = false;
+        //    mouseSensitivity = 100f;
+        //    UI.SetActive(false);
+        //}
 
+    }
+    public void OffPause()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        mouseSensitivity = 100f;
+        UI.SetActive(false);
     }
 }
