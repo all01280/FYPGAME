@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyFYPGAME/Scenes/Hospital.unity
     guid: 7314873873bda0e47ac8142f4d4da1a4
+  - enabled: 1
+    path: Assets/MyFYPGAME/Scenes/School.unity
+    guid: b2158dd9d9b83864ab748538e5cf7e09
+  - enabled: 1
+    path: Assets/MyFYPGAME/Scenes/Setting.unity
+    guid: 37e773ed2eb8a184bbf650b1d875b257
   m_configObjects: {}
