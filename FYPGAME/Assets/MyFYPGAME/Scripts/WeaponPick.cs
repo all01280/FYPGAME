@@ -55,7 +55,7 @@ public class WeaponPick : MonoBehaviour
         currentWeapon = wp;
         currentWeapon.transform.position = equipPosition.position;
         currentWeapon.transform.parent = equipPosition;
-        currentWeapon.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+        currentWeapon.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
         currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
     }
 
