@@ -6,6 +6,7 @@ public class HandGun : MonoBehaviour
 {
     public float distance = 15f;
     Camera camera;
+    public CameraShake cameraShake;
 
     bool isFiring;
     float shotCounter;
@@ -15,6 +16,7 @@ public class HandGun : MonoBehaviour
 
     Animator anim;
     public AudioSource Audio;
+
 
 
     void Start()
@@ -54,6 +56,7 @@ public class HandGun : MonoBehaviour
         RaycastHit hit;
         Audio.Play();
         muzzleEffect.Play();
+        StartCoroutine(cameraShake.Shake(.15f, .4f));
 
 
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, distance))
